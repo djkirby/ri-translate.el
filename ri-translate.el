@@ -91,10 +91,10 @@
   (insert (ri-translate--formatted-message key use-render-prop))
   (when use-render-prop (search-backward "<")))
 
-(defun ri-translate--add-english-translation (key)
+(defun ri-translate--add-english-entry (key)
   (ri-translate--add-translation "en-US" key (ri-translate--region-string)))
 
-(defun ri-translate--add-dutch-translation (key)
+(defun ri-translate--add-dutch-entry (key)
   (ri-translate--add-translation
     "nl-NL.google"
     key
@@ -105,8 +105,8 @@
   (let ((key (read-string "Specify a key: "))
         (use-render-prop (y-or-n-p "Use render prop? ")))
     (message "Adding translation...")
-    (ri-translate--add-english-translation key)
-    (ri-translate--add-dutch-translation key)
+    (ri-translate--add-english-entry key)
+    (ri-translate--add-dutch-entry key)
     (ri-translate--insert-formatted-message key use-render-prop)
     (message "Added translation")))
 
